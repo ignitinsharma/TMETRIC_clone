@@ -1,0 +1,156 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Account </title>
+</head>
+<style>
+    * {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    #imglogo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        margin-bottom: 25px;
+    }
+
+    #headline {
+        text-align: center;
+    }
+
+    #maindivforlogin {
+        margin-top: 200px;
+        width: 35%;
+        height: 400ox;
+        margin: auto;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border: 0px;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-bottom: 40px;
+
+    }
+
+
+    #maindivforlogin>#pmain {
+        margin-left: 27px;
+        margin-top: 20px;
+    }
+
+    #maindivforlogin>input {
+        padding: 8px 10px;
+        width: 80%;
+        margin-left: 27px;
+
+    }
+
+    #maindivforlogin>h3 {
+        text-align: center;
+    }
+
+    #signupacc {
+        width: 90%;
+        height: 600px;
+        display: flex;
+    }
+
+    #signupaccimg {
+        max-width: auto;
+        max-height: auto;
+        align-items: center;
+        margin-left: -120px;
+    }
+
+
+    #maindivforlogin>#btn {
+
+        width: 80%;
+        height: auto;
+        padding: 8px 12px;
+        margin-left: 30px;
+        margin-top: 25px;
+        border-radius: 10px;
+        border: 0px;
+        justify-content: center;
+        color: white;
+        background-color: #3070F0;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    #mamaindivforloginin>#btn:hover {
+
+        color: rgb(243, 243, 243);
+        background-color: rgb(202, 31, 31);
+        font-size: 20px;
+    }
+</style>
+
+<body>
+
+    <div id="signupacc">
+
+        <form id="maindivforlogin">
+            <img id="imglogo" src="https://id.tmetric.com/images/tmetric_logo_and_text.svg" alt="">
+            <!-- <form action="" id="loginform"> -->
+            <h2 id="headline">Create Your Account</h2>
+            <p id="pmain">Email</p>
+            <input type="name" name="" placeholder="Enter email" id="email">
+            <p id="pmain">Password</p>
+            <input type="name" name="" placeholder="Enter password" id="password">
+            <input type="submit" id="btn" value="Sign Up">
+
+        </form>
+        <img id="signupaccimg" src="https://id.tmetric.com/images/side_image_register.svg" alt="">
+
+    </div>
+
+</body>
+
+</html>
+<script>
+
+    //here firstly we catch login page and then add event listenr on it
+
+    let mainfile = document.querySelector("form");
+    mainfile.addEventListener("submit", myfunctionforsignup);
+
+    //define login element and catch value from local storage
+    let signup = JSON.parse(localStorage.getItem("signup")) || [];
+    //in esle case if value is avilavle in local storage so we can print the local storage value
+    // assign the local storge value into mainarray.....
+
+    function myfunctionforsignup() {
+        event.preventDefault();
+
+        //make obj for taking values from user login value for comparing with signup values
+        let obj = {
+            loginemail: document.querySelector("#email").value,
+            loginpassword: document.querySelector("#password").value,
+        }
+
+        if (document.querySelector("#email").value == "" || document.querySelector("#password").value == "") {
+            alert("Please Fill All Fields")
+        }
+
+        else {
+            signup.push(obj);
+            
+            localStorage.setItem("signup", JSON.stringify(signup));
+            alert("SignUp Successful. Please Login to continue")
+            window.location.href="loginpage.html"
+        }
+
+        //put foreach on main array because we wanna check or filter values
+
+
+
+
+    }
+
+</script>
