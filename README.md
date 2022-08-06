@@ -1,7 +1,7 @@
 # TMETRIC_clone
 
 Clone of Tmetric.com 
-Deploy Link-> [`Click here`](https://weather-forecast-nitin.netlify.app/)
+Deploy Link-> [`Click here`](https://tmetri-by-nitinsharma.netlify.app/)
 
 **Tech Stack**
 `HTML`
